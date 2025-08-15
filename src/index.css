@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    color: #171717;
+    background-color: #ffffff;
+    font-weight: 300;
+  }
+  
+  /* Dark mode styles */
+  .dark body {
+    color: #f1f5f9;
+    background-color: #000000;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-black dark:bg-white text-white dark:text-black px-6 py-3 font-light transition-all duration-300 hover:bg-gray-800 dark:hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white focus:ring-offset-1 tracking-wide uppercase;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-black dark:border-white text-black dark:text-white px-6 py-3 font-light transition-all duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white focus:ring-offset-1 tracking-wide uppercase;
+  }
+  
+  .card {
+    @apply bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-black/5 dark:border-white/5 transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+  
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/10 border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent;
+  }
+
+  .dark .text-gradient {
+    @apply from-white to-gray-300;
+  }
+
+  .floating-card {
+    @apply animate-float;
+  }
+
+  .glow-effect {
+    @apply animate-glow;
+  }
+
+  .shimmer-effect {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer-effect::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 dark:via-black/10 to-transparent animate-shimmer;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
