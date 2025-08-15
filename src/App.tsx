@@ -25,7 +25,7 @@ function App() {
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 5000) // 5 seconds for the hello sequence
+    }, 3000) // 3 seconds for the hello sequence
 
     return () => clearTimeout(timer)
   }, [])

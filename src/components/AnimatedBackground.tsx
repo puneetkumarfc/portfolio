@@ -27,45 +27,43 @@ const AnimatedBackground = () => {
         </svg>
       </div>
 
-      {/* Very Subtle Mouse Follower */}
+      {/* Very Subtle Mouse Follower - Simplified */}
       <motion.div
-        className="absolute w-96 h-96 bg-black/2 dark:bg-white/2 rounded-full blur-3xl pointer-events-none"
+        className="absolute w-64 h-64 bg-black/1 dark:bg-white/1 rounded-full blur-2xl pointer-events-none"
         animate={{
-          x: mousePosition.x - 192,
-          y: mousePosition.y - 192,
+          x: mousePosition.x - 128,
+          y: mousePosition.y - 128,
         }}
         transition={{
-          type: "spring",
-          stiffness: 30,
-          damping: 30,
+          type: "tween",
+          ease: "easeOut",
+          duration: 0.5,
         }}
       />
 
-      {/* Minimal Floating Elements */}
+      {/* Minimal Floating Elements - Simplified */}
       <motion.div
-        className="absolute top-1/4 right-1/4 w-px h-20 bg-black/10 dark:bg-white/10"
+        className="absolute top-1/4 right-1/4 w-px h-16 bg-black/5 dark:bg-white/5"
         animate={{
-          opacity: [0.1, 0.3, 0.1],
-          scaleY: [1, 1.2, 1],
+          opacity: [0.05, 0.15, 0.05],
         }}
         transition={{
-          duration: 8,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
       
       <motion.div
-        className="absolute bottom-1/3 left-1/3 w-20 h-px bg-black/10 dark:bg-white/10"
+        className="absolute bottom-1/3 left-1/3 w-16 h-px bg-black/5 dark:bg-white/5"
         animate={{
-          opacity: [0.1, 0.3, 0.1],
-          scaleX: [1, 1.2, 1],
+          opacity: [0.05, 0.15, 0.05],
         }}
         transition={{
-          duration: 10,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2,
+          delay: 3,
         }}
       />
 

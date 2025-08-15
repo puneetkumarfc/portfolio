@@ -15,6 +15,8 @@
     color: #171717;
     background-color: #ffffff;
     font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   /* Dark mode styles */
@@ -27,6 +29,21 @@
     font-family: 'Poppins', 'Inter', system-ui, sans-serif;
     font-weight: 300;
     letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* Dennis Snellenberg inspired typography */
+  .font-display {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+  }
+
+  /* Smooth transitions for interactive elements only */
+  button, a, input, textarea, select, .transition-all {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
   }
 }
 
@@ -115,6 +132,16 @@
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
+}
+
+/* Hide scrollbar for scroll stack */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
 }
 
 /* Reduced motion support */

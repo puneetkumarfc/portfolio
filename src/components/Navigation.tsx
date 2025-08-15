@@ -44,9 +44,18 @@ const Navigation = ({ isDarkMode, toggleDarkMode }: NavigationProps) => {
   }, [navItems])
 
   const scrollToSection = (href: string) => {
+    console.log('Scrolling to:', href)
     const element = document.querySelector(href)
+    console.log('Element found:', element)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      const headerHeight = 96 // Height of the fixed header
+      const elementPosition = (element as HTMLElement).offsetTop - headerHeight
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      })
+    } else {
+      console.error('Element not found for:', href)
     }
     setIsMobileMenuOpen(false)
   }
